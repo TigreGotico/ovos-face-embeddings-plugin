@@ -45,6 +45,8 @@ def required(requirements_file):
                 if pkg.strip() and not pkg.startswith("#")]
 
 
+PLUGIN_ENTRY_POINT = 'ovos-face-embeddings-plugin=ovos_face_embeddings:FaceEmbeddingsRecognitionPlugin'
+
 setup(
     name='ovos-face-embeddings-plugin',
     version=get_version(),
@@ -56,6 +58,7 @@ setup(
     packages=['ovos_face_embeddings'],
     zip_safe=True,
     keywords='OVOS openvoiceos plugin face recognition',
+    entry_points={'opm.embeddings.face': PLUGIN_ENTRY_POINT},
     install_requires=required("requirements.txt"),
     long_description=long_desc,
     long_description_content_type='text/markdown'
