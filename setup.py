@@ -49,7 +49,7 @@ setup(
     name='ovos-face-embeddings-plugin',
     version=get_version(),
     description='A face recognition plugin for OVOS',
-    url='https://github.com/JarbasHiveMind/ovos-face-embeddings-plugin',
+    url='https://github.com/TigreGotico/ovos-face-embeddings-plugin',
     author='jarbasai',
     author_email='jarbasai@mailfence.com',
     license='MIT',
