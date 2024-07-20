@@ -1,6 +1,8 @@
 # FaceEmbeddingsRecognitionPlugin
 
-The `FaceEmbeddingsRecognitionPlugin` is a plugin designed for recognizing and managing face embeddings. It extends the `FaceEmbeddingsRecognizer` class from the `ovos_plugin_manager` template and integrates with the `ChromaEmbeddingsDB` for storing and retrieving face embeddings. The plugin utilizes the `face_recognition` library to generate face embeddings from image frames.
+The `FaceEmbeddingsRecognitionPlugin` is a plugin designed for recognizing and managing face embeddings. 
+
+It uses [face_recognition](https://github.com/ageitgey/face_recognition) to extract face embeddings and integrates with  [ovos-chromadb-embeddings-plugin](https://github.com/TigreGotico/ovos-chromadb-embeddings-plugin) for storing and retrieving voice embeddings. 
 
 ## Features
 
