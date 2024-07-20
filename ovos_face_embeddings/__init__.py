@@ -1,5 +1,5 @@
 import os.path
-from typing import Optional
+from typing import Optional, Union
 
 import face_recognition
 import numpy as np
@@ -11,14 +11,15 @@ from ovos_utils.log import LOG
 
 
 class FaceEmbeddingsRecognitionPlugin(FaceEmbeddingsStore):
-    def __init__(self, db: Optional[EmbeddingsDB] = None, thresh: float = 0.75):
+    def __init__(self, db: Optional[Union[EmbeddingsDB, str]] = None):
         if db is None:
             db_path = get_xdg_cache_save_path("chromadb")
             os.makedirs(db_path, exist_ok=True)
-            db_path = f"{db_path}/face_prints"
-            LOG.info(f"Using chromadb as face embeddings store: {db_path}")
-            db = ChromaEmbeddingsDB(db_path)
-        super().__init__(db, thresh)
+            db = f"{db_path}/face_prints"
+        if isinstance(db, str):
+            LOG.info(f"Using chromadb as face embeddings store: {db}")
+            db = ChromaEmbeddingsDB(db)
+        super().__init__(db)
 
     def get_face_embeddings(self, frame: np.ndarray) -> np.ndarray:
         return face_recognition.face_encodings(frame)[0]
