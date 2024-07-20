@@ -1,10 +1,10 @@
 import face_recognition
 import numpy as np
 from ovos_chromadb_embeddings import ChromaEmbeddingsDB
-from ovos_plugin_manager.templates.embeddings import FaceEmbeddingsRecognizer
+from ovos_plugin_manager.templates.embeddings import FaceEmbeddingsStore
 
 
-class FaceEmbeddingsRecognitionPlugin(FaceEmbeddingsRecognizer):
+class FaceEmbeddingsRecognitionPlugin(FaceEmbeddingsStore):
     def __init__(self, thresh: float = 0.75):
         path = "/tmp/face_db"  # TODO
         db = ChromaEmbeddingsDB(path)
