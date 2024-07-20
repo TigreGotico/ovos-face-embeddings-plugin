@@ -18,15 +18,16 @@ Here is a quick example of how to use the `FaceEmbeddingsRecognitionPlugin`:
 
 ```python
 from ovos_face_embeddings import FaceEmbeddingsRecognitionPlugin
-import face_recognition
+from ovos_chromadb_embeddings import ChromaEmbeddingsDB
 
-# Example usage:
+db = ChromaEmbeddingsDB("./face_db")
+f = FaceEmbeddingsRecognitionPlugin(db)
+
 a = "/home/miro/PycharmProjects/ovos-user-id/a1.jpg"
 a2 = "/home/miro/PycharmProjects/ovos-user-id/a2.jpg"
 b = "/home/miro/PycharmProjects/ovos-user-id/b.jpg"
 
-f = FaceEmbeddingsRecognitionPlugin()
-
+import face_recognition # helper to load from file easily
 e1 = face_recognition.load_image_file(a)
 e2 = face_recognition.load_image_file(a2)
 b = face_recognition.load_image_file(b)
