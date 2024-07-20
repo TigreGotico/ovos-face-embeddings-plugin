@@ -1,4 +1,4 @@
 ovos-plugin-manager
 numpy
-chromadb
 face_recognition
+ovos-chromadb-embeddings-plugin
